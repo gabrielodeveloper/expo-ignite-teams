@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
+import { groupCreate } from 'src/storage/group/groupCreate';
 
 import { Highlight } from '@components/Highlight';
 import { Header } from '@components/Header';
@@ -13,8 +16,18 @@ export function NewGroup() {
 
   const navigation = useNavigation();
 
-  function handleNewGroup() {
-    navigation.navigate('players', {group});
+  async function handleNewGroup() {
+    try {
+      if(group.trim().length === 0){
+        return Alert.alert('Novo Grupo', 'Informe o nome da turma.');
+      }
+
+      await groupCreate(group);
+      navigation.navigate('players', {group});
+    } catch (error) {
+      console.log(error);
+    }
+
   }
 
   return (
