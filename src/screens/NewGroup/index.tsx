@@ -26,6 +26,7 @@ export function NewGroup() {
       navigation.navigate('players', {group});
     } catch (error) {
       console.log(error);
+      Alert.alert('Grupos', 'Não foi possível criar um novo grupo.');
     }
 
   }
