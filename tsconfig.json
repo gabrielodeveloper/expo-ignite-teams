@@ -16,8 +16,8 @@
       "@screens/*": [
         "./src/screens/*"
       ],
-      "@storange/*": [
-        "./src/storange/*"
+      "@storage/*": [
+        "./src/storage/*"
       ],
       "@utils/*": [
         "./src/utils/*"
